@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MobStac</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" href="fonts/font-awesome-4.6.3/css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/materialize.min.css">
+	<link rel="stylesheet" href="css/animate.css">
+	<link rel="stylesheet" href="css/style.css">
+
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/angular.min.js"></script>
+    <script type="text/javascript" src="js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script type="text/javascript" src="js/script_main.js"></script>
+</head>
+<body ng-app="wrapper" ng-controller="control">
+	<div class="row view">
+		<div class="col s12 center" style="padding: 10px; font-weight: bold; font-size: 30px; background: #68a6ca; color: #FFF;">SHOWING {{maptype | uppercase}}</div>
+		<div class="col s12" style="padding: 10px;">
+			<button class="btn white black-text" ng-click="changetype('cafe')">Cafe</button>
+			<button class="btn white black-text" ng-click="changetype('restaurant')">Restaurants</button>
+		</div>
+		<div class="col l8 m12 s12 viewCol" id="map"></div>
+		<div class="col l4 m12 s12 viewCol no-pad" style="overflow-y: auto;">
+			<div class="col s12 center" style="font-size: 20px;">RESULTS</div>
+			<div class="col s12 divider"></div>
+			<div class="col s12 card" ng-repeat="placeName in mapPlaces track by $index">{{$index+1}} : {{placeName}}</div>
+		</div>
+	</div>
+</body>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA7PS-rOPxzFxj5-CUI4gJyFQKhrCCTjvo&libraries=places" async defer></script>
+</html>
